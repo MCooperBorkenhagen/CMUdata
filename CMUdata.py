@@ -3,12 +3,25 @@
 # %%
 import pandas as pd
 import numpy as np
-from utilities import remove
 import os
 import json
 import re
 import random
 import nltk
+
+
+def pad(wordform, maxlen):
+    padlen = maxlen - len(wordform)
+    return(wordform + ('_'*padlen))
+
+
+def remove(list, pattern = '[0-9]'): 
+    """
+    Remove a string from each element of a list, defaults
+    to removing numeric strings.
+    """
+    list = [re.sub(pattern, '', i) for i in list] 
+    return(list)
 
 
 # utility functions:
